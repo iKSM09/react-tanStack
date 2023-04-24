@@ -2,11 +2,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { Header1 } from "../components/Header.component";
 
-import { deleteRequest, fetcher, modifyRequest } from "../utils/fetcher";
 import { Link } from "@tanstack/router";
+import { createPost, deletePost, getPosts, PostType } from "../api/posts";
 
 const PostList = () => {
-  const API_KEY = "http://localhost:3000";
   const queryClient = useQueryClient();
 
   const {
@@ -14,23 +13,18 @@ const PostList = () => {
     isLoading,
     isError,
     error,
-  } = useQuery({
+  } = useQuery<PostType[], Error>({
     queryKey: ["posts"],
-    queryFn: () => fetcher(`${API_KEY}/posts`),
+    queryFn: getPosts,
   });
 
   const createPostMutation = useMutation({
-    mutationFn: () =>
-      modifyRequest(`${API_KEY}/posts`, "POST", {
-        id: () => Date.now(),
-        title: "javaScript",
-        author: "earth",
-      }),
+    mutationFn: () => createPost("jsad", "asdfg"),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posts"] }),
   });
 
   const deletePostMutation = useMutation({
-    mutationFn: (postId) => deleteRequest(`${API_KEY}/posts/${postId}`),
+    mutationFn: deletePost,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["posts"] }),
   });
 
@@ -38,7 +32,7 @@ const PostList = () => {
     createPostMutation.mutate();
   };
 
-  const handleDeletePost = (postId) => {
+  const handleDeletePost = (postId: string) => {
     deletePostMutation.mutate(postId);
   };
 

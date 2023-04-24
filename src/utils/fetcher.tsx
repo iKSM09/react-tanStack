@@ -1,3 +1,5 @@
+import { PostType } from "../api/posts";
+
 // export const fetcher = async (
 //   input: RequestInfo,
 //   init?: RequestInit
@@ -6,7 +8,7 @@
 //   return res.json();
 // };
 
-export const fetcher = async (input: RequestInfo): Promise<Response> => {
+export const fetcher = async (input: RequestInfo): Promise<T> => {
   const res = await fetch(input);
   return res.json();
 };
