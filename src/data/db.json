@@ -1,3 +1,19 @@
 {
-  "posts": [{ "id": 0, "title": "json-server", "author": "typicode" }]
+  "posts": [
+    {
+      "id": "0",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "1",
+      "title": "react-tanstact",
+      "author": "tanstack"
+    },
+    {
+      "title": "javaScript",
+      "author": "earth",
+      "id": "37x6ue0"
+    }
+  ]
 }
