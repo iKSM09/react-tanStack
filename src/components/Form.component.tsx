@@ -13,7 +13,7 @@ const Form = (
       <Input
         id={data?.id ?? ""}
         label="Content"
-        value={data?.body ?? ""}
+        value={data?.content ?? ""}
         placeholder="What's on your mind..."
       />
       {children}

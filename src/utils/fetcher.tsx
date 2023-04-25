@@ -17,7 +17,7 @@ export const modifyRequest = async (
   input: RequestInfo,
   method: "POST" | "PUT",
   data: Response
-): Promise<Response> => {
+): Promise<T> => {
   const res = await fetch(input, {
     method,
     headers: {

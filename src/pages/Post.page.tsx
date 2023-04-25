@@ -29,7 +29,7 @@ const Post = () => {
           </button>
         </Link>
       </div>
-      <p className="my-4">{post.body}</p>
+      <p className="my-4">{post.content}</p>
     </div>
   );
 };

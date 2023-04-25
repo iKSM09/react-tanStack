@@ -23,7 +23,7 @@ import axios from "axios";
 type PostType = {
   id: string;
   title: string;
-  body: string;
+  content: string;
 };
 
 const rootRoute = new RootRoute({
@@ -131,7 +131,7 @@ const postRoute = new Route({
     return (
       <div className="space-y-2">
         <h4 className="text-xl font-bold underline">{postQuery.data?.title}</h4>
-        <div className="text-sm">{postQuery.data?.body}</div>
+        <div className="text-sm">{postQuery.data?.content}</div>
       </div>
     );
   },
