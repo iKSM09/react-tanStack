@@ -9,6 +9,10 @@ import {
   postIndexRoute,
   editPostRoute,
 } from "./routes/postList/postList.route";
+import {
+  hookFormIndexRoute,
+  hookFormRoute,
+} from "./routes/HookForm/hookForm.route";
 
 // Querying different types of routes
 // /posts -> ["posts"]
@@ -23,6 +27,7 @@ const routeTree = rootRoute.addChildren([
     postListIndexRoute,
     postRoute.addChildren([postIndexRoute, editPostRoute]),
   ]),
+  hookFormRoute.addChildren([hookFormIndexRoute]),
 ]);
 
 // Create the router using route tree
