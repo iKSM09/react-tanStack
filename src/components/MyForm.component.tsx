@@ -41,6 +41,7 @@ const MyForm = () => {
       dob: new Date(),
     },
   });
+
   const {
     register,
     control,
